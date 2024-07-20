@@ -32,6 +32,8 @@ RUN pecl install igbinary imagick redis timezonedb apcu memcached openssl ssh2
 
 # Configure extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd
+RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd
 
 # Install extensions
 RUN docker-php-ext-install gd \
@@ -48,8 +50,9 @@ RUN docker-php-ext-install gd \
 	simplexml \
 	ftp \
 	sockets \
-	pdo pdo_mysql
+	pdo \
+	pdo_mysql  \
+	mysqli
 
 # Enable extensions
 RUN docker-php-ext-enable imagick igbinary redis memcached apcu opcache timezonedb ssh2
-
