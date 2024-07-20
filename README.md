@@ -2,7 +2,7 @@
 Simple Wordpress Docker template
 
 Commands:
- - >make db
+ - >[!NOTICE]make db
    > 
     Create database with name "wp_database".
  - >make wpi
